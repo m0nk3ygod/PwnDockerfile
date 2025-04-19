@@ -36,6 +36,12 @@ git clone https://github.com/your-username/pwnable-docker.git
 cd pwnable-docker
 docker build -t pwnable-env .
 
+### ✅ Mac M1/M2 (Apple Silicon) 환경
+```bash
+docker buildx build --platform linux/amd64 -t pwnable-env .
+```
+--platform=linux/amd64 옵션은 ARM 칩셋에서도 x86_64 환경을 에뮬레이션해줍니다.
+
 ---
 
 ## 🧰 실행 방법
@@ -92,7 +98,9 @@ docker images
 docker exec -it my_pwn_env /bin/bash
 ```
 
-## 🧪 실습 예시
+---
+
+## 🧪 Pwnable 실습 예시
 ### ✅ 바이너리 실행
 ```bash
 chmod +x vuln
