@@ -110,6 +110,24 @@ docker images
 ```bash
 docker exec -it my_pwn_env /bin/bash
 ```
+---
+
+## 🔁 로컬 <-> 컨테이너 파일 복사하기
+### ✅ (1) 로컬 → 컨테이너
+```bash
+docker cp ./파일명 my_pwn_env:/root/
+```
+```bash
+docker cp vuln my_pwn_env:/root/
+```
+
+### ✅ (2) 컨테이너 → 로컬
+```bash
+docker cp my_pwn_env:/root/파일명 ./로컬폴더/
+```
+```bash
+docker cp my_pwn_env:/root/flag ./downloads/
+```
 
 ---
 
