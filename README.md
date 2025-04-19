@@ -36,3 +36,80 @@ git clone https://github.com/your-username/pwnable-docker.git
 cd pwnable-docker
 docker build -t pwnable-env .
 
+---
+
+## 🧰 실행 방법
+### 1. 기본 실행 (터미널 진입)
+```bash
+docker run --rm -it --platform linux/amd64 --name my_pwn_env pwnable-env
+```
+### 2. 로컬 파일 공유 (호스트의 바이너리 실행 등)
+```bash
+docker run --rm -it --platform linux/amd64 -v $(pwd):/workdir -w /workdir pwnable-env
+```
+
+---
+
+## 🐚 자주 쓰는 Docker 명령어 정리
+### 💡 이미지 빌드
+```bash
+docker build -t pwnable-env .
+```
+### 💡 컨테이너 실행
+```bash
+docker run -it --name my_pwn_env --platform linux/amd64 pwnable-env
+```
+### 💡 현재 실행 중인 컨테이너 보기
+```bash
+docker ps
+```
+### 💡 전체 컨테이너 보기 (종료된 것도 포함)
+```bash
+docker ps -a
+```
+### 💡 컨테이너 종료
+```bash
+docker stop my_pwn_env
+```
+### 💡 종료된 컨테이너 재시작
+```bash
+docker start -ai my_pwn_env
+```
+### 💡 컨테이너 삭제
+```bash
+docker rm my_pwn_env
+```
+### 💡 이미지 삭제
+```bash
+docker rmi pwnable-env
+```
+### 💡 로컬에 저장된 이미지 목록 보기
+```bash
+docker images
+```
+### 💡 실행 중인 컨테이너 안으로 접속
+```bash
+docker exec -it my_pwn_env /bin/bash
+```
+
+## 🧪 실습 예시
+### ✅ 바이너리 실행
+```bash
+chmod +x vuln
+```
+./vuln
+### ✅ 디버깅 (pwndbg)
+```bash
+gdb ./vuln
+```
+### ✅ pwntools 익스플로잇 예시
+```python
+from pwn import *
+
+context.arch = 'amd64'
+context.os = 'linux'
+
+io = process('./vuln')
+io.sendline(b"A" * 64)
+io.interactive()
+```
