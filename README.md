@@ -27,14 +27,23 @@ Windows, Intel Mac, Apple Silicon (M1/M2)에서도 동일한 x64 환경을 사�
 
 > ⚠️ **M1/M2 Mac은 반드시 Rosetta를 설치하고 `--platform=linux/amd64` 옵션을 사용해야 합니다.**
 
+### git 설치
+- git은 검색해서 다운...
+
+---
+
+## 🐵 Dockerfile
+
+### Docker file clone
+```bash
+git clone https://github.com/your-username/pwnable-docker.git
+cd pwnable-docker
 ---
 
 ## 🧪 Docker 이미지 빌드
 
 ### ✅ Intel/Windows/Mac (Intel)
 ```bash
-git clone https://github.com/your-username/pwnable-docker.git
-cd pwnable-docker
 docker build -t pwnable-env .
 ```
 
