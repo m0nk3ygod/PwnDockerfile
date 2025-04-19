@@ -39,7 +39,7 @@ docker build -t pwnable-env .
 
 ### ✅ Mac M1/M2 (Apple Silicon) 환경
 ```bash
-docker buildx build --platform linux/amd64 -t pwnable-env .
+docker buildx build --platform=linux/amd64 -t pwnable-env .
 ```
 --platform=linux/amd64 옵션은 ARM 칩셋에서도 x86_64 환경을 에뮬레이션해줍니다.
 
