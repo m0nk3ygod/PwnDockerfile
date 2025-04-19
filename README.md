@@ -35,6 +35,7 @@ Windows, Intel Mac, Apple Silicon (M1/M2)에서도 동일한 x64 환경을 사�
 git clone https://github.com/your-username/pwnable-docker.git
 cd pwnable-docker
 docker build -t pwnable-env .
+```
 
 ### ✅ Mac M1/M2 (Apple Silicon) 환경
 ```bash
