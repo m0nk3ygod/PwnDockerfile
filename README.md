@@ -1,6 +1,6 @@
 # 🐧 x64 Ubuntu Pwnable Docker Environment
 
-이 저장소는 시스템 해킹(pwnable) 실습을 위한 x86_64(amd64) Ubuntu 환경을 제공합니다.  
+시스템 해킹(pwnable) 실습을 위한 x86_64(amd64) Ubuntu 환경 Dockerfile을 제공하고 있습니다.
 Windows, Intel Mac, Apple Silicon (M1/M2)에서도 동일한 x64 환경을 사용할 수 있습니다.
 
 ---
