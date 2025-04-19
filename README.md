@@ -105,8 +105,8 @@ docker exec -it my_pwn_env /bin/bash
 ### ✅ 바이너리 실행
 ```bash
 chmod +x vuln
-```
 ./vuln
+```
 ### ✅ 디버깅 (pwndbg)
 ```bash
 gdb ./vuln
