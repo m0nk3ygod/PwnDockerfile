@@ -57,18 +57,6 @@ docker buildx build --platform=linux/amd64 -t pwnable-env .
 
 ---
 
-## 🧰 실행 방법
-### 1. 기본 실행 (터미널 진입)
-```bash
-docker run --rm -it --platform linux/amd64 --name my_pwn_env pwnable-env
-```
-### 2. 로컬 파일 공유 (호스트의 바이너리 실행 등)
-```bash
-docker run --rm -it --platform linux/amd64 -v $(pwd):/workdir -w /workdir pwnable-env
-```
-
----
-
 ## 🐚 자주 쓰는 Docker 명령어 정리
 ### 💡 이미지 빌드
 ```bash
