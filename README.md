@@ -36,7 +36,7 @@ Windows, Intel Mac, Apple Silicon (M1/M2)에서도 동일한 x64 환경을 사�
 
 ### Docker file clone
 ```bash
-git clone https://github.com/your-username/pwnable-docker.git
+git clone https://github.com/m0nk3ygod/PwnDockerfile.git
 cd pwnable-docker
 ```
 
