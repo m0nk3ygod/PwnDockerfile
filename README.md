@@ -1,6 +1,7 @@
 # 🐧 x64 Ubuntu Pwnable Docker Environment
 
-이 저장소는 시스템 해킹(pwnable) 실습을 위한 x86_64(amd64) Ubuntu 환경을 제공합니다.  
+시스템 해킹(pwnable) 실습을 위한 x86_64(amd64) Ubuntu 환경 Dockerfile 입니다.
+
 Windows, Intel Mac, Apple Silicon (M1/M2)에서도 동일한 x64 환경을 사용할 수 있습니다.
 
 ---
@@ -26,13 +27,110 @@ Windows, Intel Mac, Apple Silicon (M1/M2)에서도 동일한 x64 환경을 사�
 
 > ⚠️ **M1/M2 Mac은 반드시 Rosetta를 설치하고 `--platform=linux/amd64` 옵션을 사용해야 합니다.**
 
+### git 설치
+- git은 검색해서 다운...
+
+---
+
+## 🐵 Dockerfile
+
+### Docker file clone
+```bash
+git clone https://github.com/your-username/pwnable-docker.git
+cd pwnable-docker
+```
+
 ---
 
 ## 🧪 Docker 이미지 빌드
 
 ### ✅ Intel/Windows/Mac (Intel)
 ```bash
-git clone https://github.com/your-username/pwnable-docker.git
-cd pwnable-docker
 docker build -t pwnable-env .
+```
 
+### ✅ Mac M1/M2 (Apple Silicon) 환경
+```bash
+docker buildx build --platform=linux/amd64 -t pwnable-env .
+```
+--platform=linux/amd64 옵션은 ARM 칩셋에서도 x86_64 환경을 에뮬레이션해줍니다.
+
+---
+
+## 🧰 실행 방법
+### 1. 기본 실행 (터미널 진입)
+```bash
+docker run --rm -it --platform linux/amd64 --name my_pwn_env pwnable-env
+```
+### 2. 로컬 파일 공유 (호스트의 바이너리 실행 등)
+```bash
+docker run --rm -it --platform linux/amd64 -v $(pwd):/workdir -w /workdir pwnable-env
+```
+
+---
+
+## 🐚 자주 쓰는 Docker 명령어 정리
+### 💡 이미지 빌드
+```bash
+docker build -t pwnable-env .
+```
+### 💡 컨테이너 실행
+```bash
+docker run -it --name my_pwn_env --platform linux/amd64 pwnable-env
+```
+### 💡 현재 실행 중인 컨테이너 보기
+```bash
+docker ps
+```
+### 💡 전체 컨테이너 보기 (종료된 것도 포함)
+```bash
+docker ps -a
+```
+### 💡 컨테이너 종료
+```bash
+docker stop my_pwn_env
+```
+### 💡 종료된 컨테이너 재시작
+```bash
+docker start -ai my_pwn_env
+```
+### 💡 컨테이너 삭제
+```bash
+docker rm my_pwn_env
+```
+### 💡 이미지 삭제
+```bash
+docker rmi pwnable-env
+```
+### 💡 로컬에 저장된 이미지 목록 보기
+```bash
+docker images
+```
+### 💡 실행 중인 컨테이너 안으로 접속
+```bash
+docker exec -it my_pwn_env /bin/bash
+```
+
+---
+
+## 🧪 Pwnable 실습 예시
+### ✅ 바이너리 실행
+```bash
+chmod +x vuln
+./vuln
+```
+### ✅ 디버깅 (pwndbg)
+```bash
+gdb ./vuln
+```
+### ✅ pwntools 익스플로잇 예시
+```python
+from pwn import *
+
+context.arch = 'amd64'
+context.os = 'linux'
+
+io = process('./vuln')
+io.sendline(b"A" * 64)
+io.interactive()
+```
