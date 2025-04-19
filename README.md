@@ -8,14 +8,15 @@ Windows, Intel Mac, Apple Silicon (M1/M2)에서도 동일한 x64 환경을 사�
 
 ## 🛠️ 포함된 환경 및 도구
 
-| 구성 요소          | 설명 |
-|-------------------|------|
-| Ubuntu 18.04 (x86_64) | 실습용 OS 환경 |
-| Ruby 3.1.4         | one_gadget 실행용 (소스 빌드) |
-| pwndbg             | GDB 확장 (2023.03.19) |
-| pwntools           | Python 기반 익스플로잇 라이브러리 |
-| one_gadget         | libc 기준 RCE 가젯 검색기 |
-| gcc, gdb, make 등  | C언어 실습 도구 일체 |
+| 구성 요소             | 설명 |
+|----------------------|------|
+| **Ubuntu 22.04 (x86_64)** | 최신 GLIBC 2.35 포함 실습용 OS 환경 |
+| **Ruby 3.1.4**         | `one_gadget` 실행용 (패키지 설치) |
+| **pwndbg (2023.03.19)** | GDB 디버거 확장 도구 |
+| **pwntools**          | Python 기반 익스플로잇 작성 라이브러리 |
+| **one_gadget**        | libc 기준 RCE 가젯 자동 추출 도구 |
+| **unicorn (v2.0.0-rc5)** | 에뮬레이터용 CPU 바이너리 분석 도구 |
+| **gcc, g++, gdb, make, cmake** | C/C++ 실습과 빌드용 기본 도구 전체 포함 |
 
 ---
 
